@@ -68,3 +68,13 @@ export const getBlogPostRes = async (entryUrl: string) => {
   liveEdit && addEditableTags(response[0], "blog_post", true);
   return response[0];
 };
+
+export const getAccountCTA = async () => {
+  const response = (await Stack.getEntry({
+    contentTypeUid: "email_template_new_account",
+    referenceFieldPath: ["account_cta","bottom_image","footer_text","things_you_can_section","top_image"],
+    jsonRtePath: ["things_you_can_section.column_text_box","things_you_can_section.heading","things_you_can_section.title"],
+  })) as any;
+  liveEdit && addEditableTags(response[0], "email_template_new_account", true);
+  return response[0];
+}; 

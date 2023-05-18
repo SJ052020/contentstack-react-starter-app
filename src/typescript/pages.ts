@@ -22,6 +22,14 @@ type Blog = {
 export type PageEntry = {
     url: string;
     page_components: Component[];
+    account_cta: [];
+    bottom_image:[];
+    components_order:[];
+    support_help_text:string;
+    top_image:[];
+    footer_text:[];
+    primary_message:string;
+    things_you_can_section:[];
     uid: string;
     locale: string;
   }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { JsonViewer } from "@textea/json-viewer";
+// import { JsonViewer } from "@textea/json-viewer";
 import Tooltip from "../components/too-tip";
 
 function filterObject(inputObject: any) {
@@ -76,7 +76,7 @@ const DevTools = ({ response }: any) => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="modal-body">
+          {/* <div className="modal-body">
             <pre id="jsonViewer">
               {filteredJson && (
                 <JsonViewer
@@ -89,7 +89,7 @@ const DevTools = ({ response }: any) => {
                 />
               )}
             </pre>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

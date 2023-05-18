@@ -133,3 +133,12 @@ export type RenderProps = {
   locale: string;
   pageComponents:Component[];
 }
+
+export type RenderEmailComponentProps = {
+  blogsPage?: boolean;
+  contentTypeUid: string;
+  entryUid: string;
+  locale: string;
+  componentsOrder:[];
+  pageComponents:Component[];
+}

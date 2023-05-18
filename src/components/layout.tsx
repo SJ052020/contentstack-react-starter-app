@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
-import DevTools from "./devtools";
+// import DevTools from "./devtools";
 import { getHeaderRes, getFooterRes, getAllEntries } from "../helper";
 import { onEntryChange } from "../sdk/entry";
 import {
@@ -84,10 +84,10 @@ export default function Layout({ entry }: { entry: EntryProps }) {
 
   return (
     <div className='layout'>
-      <Header header={getLayout.header} navMenu={getLayout.navHeaderList} />
-      <DevTools response={jsonObj} />
+      {/* <Header header={getLayout.header} navMenu={getLayout.navHeaderList} /> */}
+      {/* <DevTools response={jsonObj} /> */}
       <Outlet />
-      <Footer footer={getLayout.footer} navMenu={getLayout.navFooterList} />
+      {/* <Footer footer={getLayout.footer} navMenu={getLayout.navFooterList} /> */}
     </div>
   );
 }
