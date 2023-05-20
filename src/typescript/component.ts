@@ -72,6 +72,63 @@ export type Component = {
   our_team?: TeamProps;
   widget?: Widget;
 }
+type TopImageObjectProps = {
+  image_background_color: string,
+  image_url: string,
+  title: string,
+  alt_text: string,
+}
+type BottomImageObjectProps = {
+  image_background_color: string,
+  image_url: string,
+  title: string,
+  alt_text: string,
+}
+type AccountCTAObjectProps = {
+  title: string,
+  cta_background_color: string,
+  cta_text_color: string,
+  cta_text: string,
+}
+type ColumnTextBoxProps = {
+  columnA: string;
+  columnB: string;
+}
+type ThingsYouCanSectionObjectProps = {
+  heading: string,
+  column_text_box: Array<ColumnTextBoxProps>,
+}
+type FooterObjectProps = { 
+  footer_text: string 
+}
+const ComponentOrdersType = [
+  "top_image",
+  "primary_message",
+  "account_cta",
+  "things_you_can_section",
+  "support_help_text",
+  "bottom_image",
+  "footer_text"
+]
+type TopImageArrayProps = Array<TopImageObjectProps>
+type BottomImageArrayProps = Array<BottomImageObjectProps>
+
+type AccountCTAArrayProps = Array<AccountCTAObjectProps>
+type ThingsYOuCanSectionArrayProps = Array<ThingsYouCanSectionObjectProps>
+type FooterArrayProps = Array<FooterObjectProps>
+type ComponentsOrderArrayProps = typeof ComponentOrdersType
+export type ComponentEmailTemmplate = {
+  components_order:ComponentsOrderArrayProps;
+  email_background_image_url: string;
+  top_image:TopImageArrayProps;
+  account_cta: AccountCTAArrayProps;
+  bottom_image:BottomImageArrayProps;
+  support_help_text:string;
+  footer_text:FooterArrayProps;
+  primary_message:string;
+  things_you_can_section:ThingsYOuCanSectionArrayProps;
+
+}
 
 export type SectionWithBucket = {
     bucket_tabular: boolean
@@ -140,5 +197,5 @@ export type RenderEmailComponentProps = {
   entryUid: string;
   locale: string;
   componentsOrder:[];
-  pageComponents:Component[];
+  pageComponents:ComponentEmailTemmplate;
 }

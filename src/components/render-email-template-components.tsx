@@ -1,84 +1,148 @@
 import React from "react";
-
-import Section from "./section";
-import HeroBanner from "./hero-banner";
-import BlogBanner from "./blog-banner";
-import CardSection from "./card-section";
-import TeamSection from "./team-section";
-import BlogSection from "./blog-section";
-import SectionBucket from "./section-bucket";
-import AboutSectionBucket from "./about-section-bucket";
-import SectionWithHtmlCode from "./section-with-html-code";
 import { RenderEmailComponentProps } from "../typescript/component";
 
 export default function RenderEmailComponents(props: RenderEmailComponentProps) {
-    
+  const splitNewLineCharacter = (splitValue:string, text:any) => {
+    return text.split(splitValue).filter(Boolean);
+  };
   const { pageComponents, blogsPage, contentTypeUid, entryUid, locale } =
     props;
+    const {
+      email_background_image_url: bgURL,
+      top_image: [
+        {
+          image_background_color: bgColor,
+          image_url: headerImage,
+          title: topImgTitle,
+          alt_text: topImgAltText,
+        },
+      ],
+      primary_message: primaryMsg,
+      account_cta: [
+        {
+          title: titleText,
+          cta_background_color: accountBgImage,
+          cta_text_color: accountColor,
+          cta_text: accountCtaText,
+        },
+      ],
+      things_you_can_section: [
+        {
+          heading: bottomTextSection,
+          column_text_box: [colA, colB],
+        },
+      ],
+      support_help_text: supportHelpText,
+      bottom_image: [
+        {
+          title: bottomImgTitle,
+          image_url: bottomImgUrl,
+          image_background_color: bottomImgBgColor,
+          alt_text: bottomImgAltText,
+        },
+      ],
+      footer_text: [{ footer_text: footerText }],
+      components_order: componentOrder,
+    } = pageComponents;
+
+  const ColAArray = splitNewLineCharacter("\n", colA);
+  const ColBArray = splitNewLineCharacter("\n", colB)
+
   return (
     <div data-pageref={entryUid} data-contenttype={contentTypeUid} data-locale={locale}>
-      {pageComponents?.map((component, key: number) => {
-        if (component.hero_banner) {
-          return blogsPage ? (
-            <BlogBanner
-              blog_banner={component.hero_banner}
-              key={`component-${key}`}
+      <div className="template-container" style={{
+            backgroundImage: `url(${bgURL})`,
+          }}>
+        
+          <div
+            className="top-image"
+            style={{
+              order: `${componentOrder.indexOf("top_image")}`,
+            }}
+          >
+            <img
+              src={headerImage}
+              title={topImgTitle}
+              alt={topImgAltText}
+              style={{ backgroundColor: `${bgColor}` }}
+              width={100}
+              height={100}
             />
-          ) : (
-            <HeroBanner
-              hero_banner={component.hero_banner}
-              key={`component-${key}`}
+          </div>
+          <div className="top-container">
+            <div
+              className="primary_message"
+              style={{ order: `${componentOrder.indexOf("primary_message")}` }}
+              dangerouslySetInnerHTML={{ __html: primaryMsg }}
             />
-          );
-        }
-        if (component.section) {
-          return (
-            <Section section={component.section} key={`component-${key}`} />
-          );
-        }
-        if (component.section_with_buckets) {
-          return component.section_with_buckets.bucket_tabular ? (
-            <AboutSectionBucket
-              sectionWithBuckets={component.section_with_buckets}
-              key={`component-${key}`}
+
+            <div
+              className="account_cta"
+              style={{ order: `${componentOrder.indexOf("account_cta")}` }}
+            >
+              <button
+                title={titleText}
+                style={{
+                  backgroundColor: `${accountBgImage}`,
+                  color: `${accountColor}`,
+                }}
+              >
+                {accountCtaText}
+              </button>
+            </div>
+          </div>
+          <div
+            className="things_you_can_section"
+            style={{
+              order: `${componentOrder.indexOf("things_you_can_section")}`,
+            }}
+          >
+            <p>{bottomTextSection}</p>
+            <div className="things_you_can_section_box">
+              <ul>
+                {ColAArray.map((text:string, index:number) => (
+                  <li key={index}>{text}</li>
+                ))}
+              </ul>
+              <ul>
+                {ColBArray.map((text:string, index:number) => (
+                  <li key={index}>{text}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div
+            className="support_help_text"
+            style={{ order: `${componentOrder.indexOf("support_help_text")}` }}
+          >
+            <p>{supportHelpText}</p>
+          </div>
+          <div
+            className="bottom_image"
+            style={{
+              order: `${componentOrder.indexOf("bottom_image")}`,
+            }}
+          >
+            <img
+              src={bottomImgUrl}
+              title={bottomImgTitle}
+              alt={bottomImgAltText}
+              style={{ backgroundColor: `${bottomImgBgColor}` }}
             />
-          ) : (
-            <SectionBucket
-              section={component.section_with_buckets}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.from_blog) {
-          return (
-            <BlogSection blogs={component.from_blog} key={`component-${key}`} />
-          );
-        }
-        if (component.section_with_cards) {
-          return (
-            <CardSection
-              cards={component.section_with_cards.cards}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.section_with_html_code) {
-          return (
-            <SectionWithHtmlCode
-              embedObject={component.section_with_html_code}
-              key={`component-${key}`}
-            />
-          );
-        }
-        if (component.our_team) {
-          return (
-            <TeamSection
-              ourTeam={component.our_team}
-              key={`component-${key}`}
-            />
-          );
-        }
-      })}
+          </div>
+          <div
+            className="footer_text"
+            style={{
+              order: `${componentOrder.indexOf("footer_text")}`,
+            }}
+          >
+            {footerText.split("\n").map((text, index) => (
+              <p key={index}>
+                {text}
+              </p>
+            ))}
+          </div>
+      </div>
     </div>
   );
 }

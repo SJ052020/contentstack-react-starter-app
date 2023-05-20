@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+.left-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px gray;
+}
+.left-section-select-section select {
+  padding: 10px;
+  border-radius: 10px;
+  font: 1em sans-serif;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+.left-section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.left-section-button-section {
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+.button-approve,
+.button-reject {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  color: black;
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+.button-approve {
+  background-color: #00ff00;
+}
+.button-approve:disabled,
+.button-reject:disabled {
+  cursor: not-allowed;
+}
+.button-reject {
+  background-color: #ff0000;
+}
+.template-container {
+  box-sizing: border-box;
+  padding: 10px 0;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px gray;
+  display: flex;
+  flex-direction: column;
+}
+.top-image,
+.bottom_image {
+  display: flex;
+  justify-content: center;
+}
+.top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer_text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 140px;
+}
+.top-container .account_cta {
+  padding: 20px 0 0 0;
+}
+.top-container .account_cta button {
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+}
+.bottom_image {
+  padding-bottom: 10px;
+  align-self: center;
+  width: 70%;
+}
+.bottom_image img {
+  width: 100%;
+}
+.things_you_can_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 0 0;
+}
+.things_you_can_section p {
+  font-size: 18px;
+  font-weight: bold;
+}
+.things_you_can_section_box {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 4rem;
+}
+.things_you_can_section_box ul {
+  border: 1px solid black;
+  padding: 18px;
+}
+.support_help_text {
+  display: flex;
+  justify-content: center;
+}
+.support_help_text p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.footer_text p {
+  font-size: 11px;
+  margin: 0;
+}
+.footer_text p:nth-child(2) {
+  margin-bottom: 10px;
+}

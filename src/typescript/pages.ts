@@ -1,4 +1,4 @@
-import { Component } from "../typescript/component";
+import { Component, ComponentEmailTemmplate } from "../typescript/component";
 
 type Object = {
     title: string;
@@ -21,7 +21,7 @@ type Blog = {
 
 export type PageEntry = {
     url: string;
-    page_components: Component[];
+    page_components: [];
     account_cta: [];
     bottom_image:[];
     components_order:[];
@@ -32,6 +32,7 @@ export type PageEntry = {
     things_you_can_section:[];
     uid: string;
     locale: string;
+    email_background_image_url: string;
   }
   
 export type Prop = {
