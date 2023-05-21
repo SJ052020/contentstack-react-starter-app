@@ -1,8 +1,15 @@
 import React from "react";
 
 export default function EmailTemplateDropDown(props:any){
+  const isTemplateOpen = Object.keys(props.entries) && props.openEmailTemplate;
+  let customStyles = {};
+  if(isTemplateOpen){
+    customStyles = {
+      height: "inherit"
+    }
+  }
     return (
-        <div className="left-section">
+        <div className="left-section" style={customStyles}>
             <p className="left-section-heading">Please select the template</p>
             <div className="left-section-select-section">
                 <select

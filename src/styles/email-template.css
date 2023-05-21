@@ -7,6 +7,7 @@
   justify-content: center;
 }
 .left-section {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,14 +45,14 @@
   color: white;
 }
 .button-approve {
-  background-color: #00ff00;
+  background-color: #a6d058;
 }
 .button-approve:disabled,
 .button-reject:disabled {
   cursor: not-allowed;
 }
 .button-reject {
-  background-color: #ff0000;
+  background-color: #ee4b2b;
 }
 .template-container {
   box-sizing: border-box;
