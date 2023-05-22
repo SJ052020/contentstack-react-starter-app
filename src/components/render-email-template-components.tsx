@@ -5,7 +5,7 @@ export default function RenderEmailComponents(props: RenderEmailComponentProps) 
   const splitNewLineCharacter = (splitValue:string, text:any) => {
     return text.split(splitValue).filter(Boolean);
   };
-  const { pageComponents, blogsPage, contentTypeUid, entryUid, locale } =
+  const { pageComponents, blogsPage, contentTypeUid, entryUid, locale, resetState } =
     props;
     const {
       email_background_image_url: bgURL,
@@ -117,6 +117,9 @@ export default function RenderEmailComponents(props: RenderEmailComponentProps) 
           >
             <p>{supportHelpText}</p>
           </div>
+          <div className="bottom-container" style={{
+              order: `${componentOrder.indexOf("bottom_image")}`,
+            }}>
           <div
             className="bottom_image"
             style={{
@@ -142,7 +145,24 @@ export default function RenderEmailComponents(props: RenderEmailComponentProps) 
               </p>
             ))}
           </div>
+          </div>
+          
       </div>
+      <div className="left-section-button-section" style={{
+              order: `10000`,
+            }}>
+              <button
+                className="button-approve"
+              >
+                Approve
+              </button>
+              <button
+                className="button-reject"
+                onClick={resetState}
+              >
+                Go back
+              </button>
+          </div>
     </div>
   );
 }

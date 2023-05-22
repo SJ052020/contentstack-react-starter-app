@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import { Action, Image } from "./action";
 
 type Object = {
@@ -198,4 +199,5 @@ export type RenderEmailComponentProps = {
   locale: string;
   componentsOrder:[];
   pageComponents:ComponentEmailTemmplate;
+  resetState: MouseEventHandler<HTMLButtonElement>
 }

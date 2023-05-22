@@ -30,6 +30,7 @@
 }
 .left-section-button-section {
   display: flex;
+  justify-content: center;
   gap: 20px;
   padding-top: 20px;
 }
@@ -52,7 +53,7 @@
   cursor: not-allowed;
 }
 .button-reject {
-  background-color: #ee4b2b;
+  background-color: #a6d058;
 }
 .template-container {
   box-sizing: border-box;
@@ -76,7 +77,6 @@
 .footer_text {
   display: flex;
   flex-direction: column;
-  padding-left: 140px;
 }
 .top-container .account_cta {
   padding: 20px 0 0 0;
@@ -87,10 +87,13 @@
   border: none;
   border-radius: 8px;
 }
+.bottom-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
 .bottom_image {
   padding-bottom: 10px;
-  align-self: center;
-  width: 70%;
 }
 .bottom_image img {
   width: 100%;
@@ -113,8 +116,8 @@
   padding: 0 4rem;
 }
 .things_you_can_section_box ul {
-  border: 1px solid black;
-  padding: 18px;
+  border: 1px solid #d3d3d3;
+  padding: 12px 32px;
 }
 .support_help_text {
   display: flex;

@@ -39,16 +39,20 @@ export default function Home({ entry }: Prop) {
   const emailChangeHandler = () => {
     setOpenEmailTemplate(true);
   }
+  const resetState = () => {
+    setOpenEmailTemplate(!openEmailTemplate)
+  }
   return (
     
     <div className="main-container">
-    <EmailTemplateDropDown emailChangeHandler={emailChangeHandler} entries={getEntries} openEmailTemplate={openEmailTemplate}/>
+    {!openEmailTemplate && <EmailTemplateDropDown emailChangeHandler={emailChangeHandler} entries={getEntries} openEmailTemplate={openEmailTemplate}/>}
     {Object.keys(getEntries).length && openEmailTemplate? (<RenderEmailComponents
       pageComponents={getEntries}
       componentsOrder={getEntries?.components_order}
       contentTypeUid='email_template_new_account'
       entryUid={getEntries?.uid}
       locale={getEntries?.locale}
+      resetState={resetState}
     />): (
       <Skeleton count={2} height={400} />
     )}

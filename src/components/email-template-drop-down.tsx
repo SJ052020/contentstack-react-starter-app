@@ -22,20 +22,7 @@ export default function EmailTemplateDropDown(props:any){
                 <option>New account email template</option>
                 </select>
             </div>
-            <div className="left-section-button-section">
-              <button
-                className="button-approve"
-                disabled={(Object.keys(props.entries).length === 0 || !props.openEmailTemplate) ? true : false}
-              >
-                Approve
-              </button>
-              <button
-                className="button-reject"
-                disabled={(Object.keys(props.entries).length === 0 || !props.openEmailTemplate) ? true : false}
-              >
-                Reject
-              </button>
-            </div>
+            
         </div>
     )
 }
