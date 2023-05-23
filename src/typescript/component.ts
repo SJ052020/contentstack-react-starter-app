@@ -91,13 +91,9 @@ type AccountCTAObjectProps = {
   cta_text_color: string,
   cta_text: string,
 }
-type ColumnTextBoxProps = {
-  columnA: string;
-  columnB: string;
-}
 type ThingsYouCanSectionObjectProps = {
   heading: string,
-  column_text_box: Array<ColumnTextBoxProps>,
+  column_text_box: any,
 }
 type FooterObjectProps = { 
   footer_text: string 
